@@ -11,4 +11,7 @@
         <conf name="compile-test"/>
         <conf name="runtime-test"/>
     </configurations>
+    <dependencies>
+        <dependency org="com.github.rjolly" name="nachocalendar" rev="0.23" conf="compile->master;runtime->default"/>
+    </dependencies>
 </ivy-module>
