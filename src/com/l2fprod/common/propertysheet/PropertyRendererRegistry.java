@@ -41,15 +41,12 @@ public class PropertyRendererRegistry
 		TableCellRenderer renderer;
 		java.beans.PropertyDescriptor descriptor;
 		renderer = null;
-		if (!(property instanceof PropertyDescriptorAdapter))
-			break MISSING_BLOCK_LABEL_55;
-		descriptor = ((PropertyDescriptorAdapter)property).getDescriptor();
-		if (!(descriptor instanceof ExtendedPropertyDescriptor) || ((ExtendedPropertyDescriptor)descriptor).getPropertyTableRendererClass() == null)
-			break MISSING_BLOCK_LABEL_55;
-		return (TableCellRenderer)((ExtendedPropertyDescriptor)descriptor).getPropertyTableRendererClass().newInstance();
-		Exception ex;
-		ex;
-		ex.printStackTrace();
+		if (property instanceof PropertyDescriptorAdapter) {
+			descriptor = ((PropertyDescriptorAdapter)property).getDescriptor();
+			if (descriptor instanceof ExtendedPropertyDescriptor && ((ExtendedPropertyDescriptor)descriptor).getPropertyTableRendererClass() != null) {
+				return (TableCellRenderer)((ExtendedPropertyDescriptor)descriptor).getPropertyTableRendererClass().newInstance();
+			}
+		}
 		Object value = propertyToRenderer.get(property);
 		if (value instanceof TableCellRenderer)
 			renderer = (TableCellRenderer)value;

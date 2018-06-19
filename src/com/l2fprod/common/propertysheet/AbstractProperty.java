@@ -31,9 +31,6 @@ public abstract class AbstractProperty
 		AbstractProperty clone = null;
 		clone = (AbstractProperty)super.clone();
 		return clone;
-		CloneNotSupportedException e;
-		e;
-		throw new RuntimeException(e);
 	}
 
 	public void setValue(Object value) {

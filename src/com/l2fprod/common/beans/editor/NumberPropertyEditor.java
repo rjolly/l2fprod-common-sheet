@@ -79,8 +79,5 @@ public class NumberPropertyEditor extends AbstractPropertyEditor {
 		}).newInstance(new Object[] {
 			"0"
 		});
-		Exception e;
-		e;
-		throw new RuntimeException(e);
 	}
 }

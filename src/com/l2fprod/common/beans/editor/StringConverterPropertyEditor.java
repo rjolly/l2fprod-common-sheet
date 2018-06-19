@@ -28,9 +28,6 @@ public abstract class StringConverterPropertyEditor extends AbstractPropertyEdit
 		if (text == null || text.trim().length() == 0)
 			return null;
 		return convertFromString(text.trim());
-		Exception e;
-		e;
-		return oldValue;
 	}
 
 	public void setValue(Object value) {

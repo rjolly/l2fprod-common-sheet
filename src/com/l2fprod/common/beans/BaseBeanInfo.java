@@ -78,8 +78,6 @@ public class BaseBeanInfo extends SimpleBeanInfo {
 		catch (MissingResourceException e) { }
 		addPropertyDescriptor(descriptor);
 		return descriptor;
-		e;
-		throw new RuntimeException(e);
 	}
 
 	public PropertyDescriptor removeProperty(String propertyName) {

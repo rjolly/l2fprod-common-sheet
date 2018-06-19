@@ -226,8 +226,5 @@ public class PropertySheetPage extends JPanel {
 
 	static Class _mthclass$(String x0) {
 		return Class.forName(x0);
-		ClassNotFoundException x1;
-		x1;
-		throw new NoClassDefFoundError(x1.getMessage());
 	}
 }
