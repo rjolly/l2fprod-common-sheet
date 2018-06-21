@@ -44,7 +44,11 @@ public class PropertyRendererRegistry
 		if (property instanceof PropertyDescriptorAdapter) {
 			descriptor = ((PropertyDescriptorAdapter)property).getDescriptor();
 			if (descriptor instanceof ExtendedPropertyDescriptor && ((ExtendedPropertyDescriptor)descriptor).getPropertyTableRendererClass() != null) {
-				return (TableCellRenderer)((ExtendedPropertyDescriptor)descriptor).getPropertyTableRendererClass().newInstance();
+				try {
+					return (TableCellRenderer)((ExtendedPropertyDescriptor)descriptor).getPropertyTableRendererClass().newInstance();
+				} catch (final Exception ex) {
+					ex.printStackTrace();
+				}
 			}
 		}
 		Object value = propertyToRenderer.get(property);

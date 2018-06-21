@@ -136,7 +136,7 @@ public class PropertySheetPage3 extends JPanel {
 		level21.addSubProperty(level211);
 		DefaultProperty root = new NoReadWriteProperty();
 		root.setDisplayName("Root");
-		PropertySheetPanel sheet = new PropertySheetPanel();
+		final PropertySheetPanel sheet = new PropertySheetPanel();
 		sheet.setMode(0);
 		sheet.setProperties(new Property[] {
 			new ColorProperty(), level0, root
@@ -156,7 +156,7 @@ public class PropertySheetPage3 extends JPanel {
 
 		};
 		sheet.addPropertySheetChangeListener(listener);
-		JButton button = new JButton(new AbstractAction(sheet) {
+		JButton button = new JButton(new AbstractAction(sheet.toString()) {
 
 			public void actionPerformed(ActionEvent e) {
 				sheet.getTable().setWantsExtraIndent(!sheet.getTable().getWantsExtraIndent());
@@ -168,7 +168,11 @@ public class PropertySheetPage3 extends JPanel {
 	}
 
 	static Class _mthclass$(String x0) {
-		return Class.forName(x0);
+		try {
+			return Class.forName(x0);
+		} catch (final ClassNotFoundException e) {
+			throw new NoClassDefFoundError(e.getMessage());
+		}
 	}
 
 	static  {

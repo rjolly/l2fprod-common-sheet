@@ -184,7 +184,6 @@ public class PropertySheetTableModel extends AbstractTableModel
 
 		properties.clear();
 		properties.addAll(Arrays.asList(newProperties));
-		Property prop;
 		for (Iterator iter = properties.iterator(); iter.hasNext(); prop.addPropertyChangeListener(this))
 			prop = (Property)iter.next();
 

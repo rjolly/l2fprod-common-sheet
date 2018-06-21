@@ -16,11 +16,11 @@ public class BeanUtils {
 		Method readMethod = null;
 		String base = capitalize(propertyName);
 		try {
-			readMethod = clazz.getMethod("is" + base, null);
+			readMethod = clazz.getMethod("is" + base);
 		}
 		catch (Exception getterExc) {
 			try {
-				readMethod = clazz.getMethod("get" + base, null);
+				readMethod = clazz.getMethod("get" + base);
 			}
 			catch (Exception e) { }
 		}

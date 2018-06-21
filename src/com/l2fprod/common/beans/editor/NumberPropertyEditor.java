@@ -74,10 +74,14 @@ public class NumberPropertyEditor extends AbstractPropertyEditor {
 	}
 
 	private Object getDefaultValue() {
-		return type.getConstructor(new Class[] {
-			java.lang.String.class
-		}).newInstance(new Object[] {
-			"0"
-		});
+		try {
+			return type.getConstructor(new Class[] {
+				java.lang.String.class
+			}).newInstance(new Object[] {
+				"0"
+			});
+		} catch (final Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

@@ -60,7 +60,7 @@ class PropertyDescriptorAdapter extends AbstractProperty {
 		try {
 			Method method = descriptor.getReadMethod();
 			if (method != null)
-				setValue(method.invoke(object, null));
+				setValue(method.invoke(object));
 		}
 		catch (Exception e) {
 			String message = "Got exception when reading property " + getName();

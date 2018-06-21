@@ -25,7 +25,7 @@ public class BeanBinder {
 		this(bean, sheet, (new DefaultBeanInfoResolver()).getBeanInfo(bean));
 	}
 
-	public BeanBinder(Object bean, PropertySheetPanel sheet, BeanInfo beanInfo) {
+	public BeanBinder(final Object bean, final PropertySheetPanel sheet, BeanInfo beanInfo) {
 		this.bean = bean;
 		this.sheet = sheet;
 		sheet.setProperties(beanInfo.getPropertyDescriptors());

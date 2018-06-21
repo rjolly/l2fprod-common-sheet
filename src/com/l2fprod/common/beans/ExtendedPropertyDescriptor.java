@@ -34,7 +34,7 @@ public class ExtendedPropertyDescriptor extends PropertyDescriptor {
 				return 1;
 			if (!(desc1 instanceof ExtendedPropertyDescriptor) && !(desc2 instanceof ExtendedPropertyDescriptor))
 				return String.CASE_INSENSITIVE_ORDER.compare(desc1.getDisplayName(), desc2.getDisplayName());
-			int category = String.CASE_INSENSITIVE_ORDER.compare(((ExtendedPropertyDescriptor)desc1).getCategory() != null ? ((Object) (((ExtendedPropertyDescriptor)desc1).getCategory())) : "", ((ExtendedPropertyDescriptor)desc2).getCategory() != null ? ((Object) (((ExtendedPropertyDescriptor)desc2).getCategory())) : "");
+			int category = String.CASE_INSENSITIVE_ORDER.compare(((ExtendedPropertyDescriptor)desc1).getCategory() != null ? (((ExtendedPropertyDescriptor)desc1).getCategory()) : "", ((ExtendedPropertyDescriptor)desc2).getCategory() != null ? (((ExtendedPropertyDescriptor)desc2).getCategory()) : "");
 			if (category == 0)
 				return String.CASE_INSENSITIVE_ORDER.compare(desc1.getDisplayName(), desc2.getDisplayName());
 			else

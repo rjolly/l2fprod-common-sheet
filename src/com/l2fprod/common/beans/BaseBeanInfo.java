@@ -62,22 +62,25 @@ public class BaseBeanInfo extends SimpleBeanInfo {
 
 	public ExtendedPropertyDescriptor addProperty(String propertyName) {
 		ExtendedPropertyDescriptor descriptor;
-		MissingResourceException e;
-		if (propertyName == null || propertyName.trim().length() == 0)
-			throw new IntrospectionException("bad property name");
-		descriptor = ExtendedPropertyDescriptor.newPropertyDescriptor(propertyName, getType());
 		try {
-			descriptor.setDisplayName(getResources().getString(propertyName));
+			if (propertyName == null || propertyName.trim().length() == 0)
+				throw new IntrospectionException("bad property name");
+			descriptor = ExtendedPropertyDescriptor.newPropertyDescriptor(propertyName, getType());
+			try {
+				descriptor.setDisplayName(getResources().getString(propertyName));
+			}
+			// Misplaced declaration of an exception variable
+			catch (MissingResourceException e) { }
+			try {
+				descriptor.setShortDescription(getResources().getString(propertyName + ".shortDescription"));
+			}
+			// Misplaced declaration of an exception variable
+			catch (MissingResourceException e) { }
+			addPropertyDescriptor(descriptor);
+			return descriptor;
+		} catch (final IntrospectionException e) {
+			throw new RuntimeException(e);
 		}
-		// Misplaced declaration of an exception variable
-		catch (MissingResourceException e) { }
-		try {
-			descriptor.setShortDescription(getResources().getString(propertyName + ".shortDescription"));
-		}
-		// Misplaced declaration of an exception variable
-		catch (MissingResourceException e) { }
-		addPropertyDescriptor(descriptor);
-		return descriptor;
 	}
 
 	public PropertyDescriptor removeProperty(String propertyName) {
